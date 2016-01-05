@@ -1,37 +1,53 @@
 #-*- coding: utf-8 -*-
 import random
+import time
 
-guessesTaken = 0
+def displayIntro():
+	print('당신은 목숨을 건 내기를 하고 있습니다.')
+	print('눈 앞의 사람이 동전을 던질 것입니다.')
+	print('만일 당신이 맞는 면을 고른다면 엄청난 재산을 얻겠지만,')
+	print('잘못된 면을 고른다면 즉시 목숨을 잃어버릴 것입니다.')
+	print()
 
-print('자넨 이름이 뭔가?')
-userName = input()
+def chooseCoin():
+	coin = ' '
+	while coin != '앞' and coin != '뒤':
+		print('어느 면을 고르시겠습니까? (앞 또는 뒤)')
+		coin = input()
 
-print('만나서 반갑구만, ' + userName + '!')
+	return coin
 
-number = random.randint(1, 100)
+def checkCoin(chosenCoin):
+	print('남자가 동전을 하늘 높이 던져올립니다...')
+	time.sleep(2)
+	print('동전은 정점을 찍고 바닥으로 떨어지기 시작했습니다...')
+	time.sleep(2)
+	print('짤그랑 소리와 함께 구르던 동전은....')
+	print()
+	time.sleep(2)
 
-print('이봐, ' + userName + ', 내가 지금부터 숫자를 하나 생각할 건데, 1에서 100 사이야. 맞춰보라구!! 하하ㅡ하하하!')
+	rightCoin = random.randint(1, 2)
 
-while guessesTaken < 6:
-    print('맞춰보시지, 얼마인 거 같나?')
-    guess = input()
-    guess = int(guess)
+	if rightCoin == '1':
+		rightCoin = '앞'
+	else:
+		rightCoin = '뒤'
 
-    guessesTaken = guessesTaken + 1
 
-    if number < guess:
-        print('숫자가 너무 크잖아!! 얼간아!! 하ㅡ하하하하!')
+	if chosenCoin == rightCoin:
+		print('성공입니다! 당신은 세상의 모든 부를 얻었습니다!')
 
-    if number > guess:
-        print('소심한 멍청이 같으니라고? 그렇게 작은 숫자로 되겠냐!!')
+	else:
+		print('시ㅡ망입니다.')
 
-    if number == guess:
-        break
+playAgain = '예'
+while playAgain == '예':
 
-if number == guess:
-    guessesTaken = str(guessesTaken)
-    print(userName + ', 제법 하는군, 운이 좋은건가? 쳇! ' + guessesTaken + '번만에 맞추다니!')
+	displayIntro()
 
-if number != guess:
-    number = str(number)
-    print('멍청아, 그것도 못 맞추냐! 정답은 ' + number + '였다구! 아ㅡ하하하!')
+	coinSide = chooseCoin()
+
+	checkCoin(coinSide)
+
+	print('한 번 더, 도전해 보시겠습니까?')
+	playAgain = input()
