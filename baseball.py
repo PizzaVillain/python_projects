@@ -50,4 +50,26 @@ def chooseHome():
 			print('틀렸습니다!! 당신이 선공입니다!!')
 			#선공처리 필요
 
-chooseTeam()
+def attack():
+	print(inning + '회' + topBottom + ' 입니다.')
+	print('타자는 ' + thisBatter + ', 투수는 ' + thispitcher + ' 입니다.')
+	#타자/투수의 스탯도 출력할 필요가 있음.
+	print('투수가 크게 와인드업 합니다.')
+	print('배트를 휘두르시겠습니까?')
+	print('휘두르시려면 1을, 공을 지켜보시려면 2를 눌러주세요')
+	battingWill = ' '
+	while battingWill == '1' or battingWill == '2'
+		battingWill = input()
+		if battingWill == '1'
+			print('배팅 타입은 어떻게 하시겠습니까?')
+			print('짧고 정확한 스윙은 1을, 길고 강력한 스윙은 2를 눌러주세요.')
+			battingType = input()
+			while battingType == '1' or battingType == '2':
+				if battingType == '1':
+				#타자의 스탯 + 전략 VS 투수의 스탯 + 전략으로 결과처리.
+				elif battingType == '2':
+				#타자의 스탯 + 전략 VS 투수의 스탯 + 전략으로 결과처리.
+				else:
+					print('잘못된 입력입니다.')
+
+
